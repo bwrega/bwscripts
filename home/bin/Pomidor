@@ -7,12 +7,15 @@ end
 
 set sleepTick 10 #sekund
 
+echo Wciśnij ENTER żeby zrobić pauzę
+echo
+
 for minuta in (seq 25 -1 1)
 	printf "Zostało %2d minut " $minuta
 	for i in (seq 6)
 		set startTick (date +%s)
 		if bash -c "read -t $sleepTick"
-			set timeLeft (math (date +%s) - $startTick)
+			set timeLeft (math (date +%s.%N) - $startTick)
 			echo Pauza!
 			echo Wciśnij Enter żeby wznowić POMIDORA
 			bash -c "read"
