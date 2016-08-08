@@ -1,0 +1,26 @@
+#!/bin/fish
+set nrPomidora $argv[1]
+if [ -z "$nrPomidora" ]
+	echo "Użycie: Pomidor nr_pomidora" 1>&2
+	exit 1
+end
+
+for minuta in (seq 25 -1 1)
+	printf "Zostało %2d minut " $minuta
+	for i in (seq 6)
+		sleep 10
+		#sleep 0.1
+		echo -n +
+	end
+	echo
+end
+
+echo
+echo Koniec pomidora nr $nrPomidora
+
+beep -r 2 -D 100
+
+if [ "$nrPomidora" = 4 ]
+	echo 'Zrób sobie dłuższą przerwę!'
+	beep -f 2000
+end

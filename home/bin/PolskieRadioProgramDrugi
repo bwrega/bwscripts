@@ -1,0 +1,3 @@
+#!/bin/bash
+mplayer 'mmsh://stream.polskieradio.pl/program2?MSWMExt=.asf'
+#cvlc 'mmsh://stream.polskieradio.pl/program2?MSWMExt=.asf'

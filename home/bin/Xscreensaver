@@ -1,0 +1,5 @@
+#!/bin/fish
+
+if [ -z "$IN_VNC" ]
+	xscreensaver -no-splash &
+end
