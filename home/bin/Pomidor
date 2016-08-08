@@ -5,11 +5,17 @@ if [ -z "$nrPomidora" ]
 	exit 1
 end
 
+set sleepTick 10s
+
 for minuta in (seq 25 -1 1)
 	printf "Zostało %2d minut " $minuta
 	for i in (seq 6)
-		sleep 10
-		#sleep 0.1
+		sleep $sleepTick
+		if bash -c "read -t 0"
+			echo Pauza!
+			echo Wciśnij Enter żeby wznowić POMIDORA
+			bash -c "read"
+		end
 		echo -n +
 	end
 	echo
@@ -20,7 +26,7 @@ echo Koniec pomidora nr $nrPomidora
 
 beep -r 2 -D 100
 
-if [ "$nrPomidora" = 4 ]
+if [ (math "$nrPomidora"%4) = 0 ]
 	echo 'Zrób sobie dłuższą przerwę!'
 	beep -f 2000
 end
