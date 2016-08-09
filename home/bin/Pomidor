@@ -13,7 +13,7 @@ echo
 for minuta in (seq 25 -1 1)
 	printf "Zostało %2d minut " $minuta
 	for i in (seq 6)
-		set startTick (date +%s)
+		set startTick (date +%s.%N)
 		if bash -c "read -t $sleepTick"
 			set timeLeft (math (date +%s.%N) - $startTick)
 			echo Pauza!
