@@ -19,6 +19,7 @@ for minuta in (seq 25 -1 1)
 			echo Pauza!
 			echo Wciśnij Enter żeby wznowić POMIDORA
 			bash -c "read"
+			echo Wznawiam...
 			sleep $timeLeft
 		end
 		echo -n +
