@@ -1,16 +1,40 @@
 #!/bin/fish
+
+function notify
+	notify-send -t 20000 $argv
+end
+
+function beepShort
+	beep -r 2 -D 100
+end
+
+function beepLong
+	beepShort
+	for f in (seq 100 100 3000) ; echo "-f $f -l 17 -n " ; end | xargs beep
+end
+
 set nrPomidora $argv[1]
 if [ -z "$nrPomidora" ]
 	echo "Użycie: Pomidor nr_pomidora" 1>&2
 	exit 1
 end
 
-set sleepTick 10 #sekund
+set required beep notify-send
+for program in $required
+	if [ -z (which $program 2>/dev/null) ]
+		echo Do działania wymagany jest program $program
+		echo Zainstaluj go z repozytorium swojej dystrybucji systemu operacyjnego
+		exit 1
+	end
+end
 
 echo Wciśnij ENTER żeby zrobić pauzę
 echo
 
-for minuta in (seq 25 -1 1)
+set pomidorTime 25 #minut
+set sleepTick 10   #sekund
+
+for minuta in (seq $pomidorTime -1 1)
 	printf "Zostało %2d minut " $minuta
 	for i in (seq 6)
 		set startTick (date +%s.%N)
@@ -22,17 +46,21 @@ for minuta in (seq 25 -1 1)
 			echo Wznawiam...
 			sleep $timeLeft
 		end
-		echo -n +
+		echo -n + #tick
 	end
 	echo
 end
 
 echo
-echo Koniec pomidora nr $nrPomidora
-
-beep -r 2 -D 100
+set pomidorEnd "Koniec pomidora nr $nrPomidora"
+echo $pomidorEnd
 
 if [ (math "$nrPomidora"%4) = 0 ]
-	echo 'Zrób sobie dłuższą przerwę!'
-	for f in (seq 100 100 3000) ; echo "-f $f -l 17 -n " ; end | xargs beep
+	set longerBreak 'Zrób sobie dłuższą przerwę!'
+	echo $longerBreak
+	notify-send "$pomidorEnd" "$longerBreak"
+	beepLong
+else
+	notify-send "$pomidorEnd"
+	beepShort
 end
