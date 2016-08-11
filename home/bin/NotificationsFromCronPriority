@@ -1,0 +1,9 @@
+#!/bin/fish
+
+while sleep 0.3
+	read line < ~/tym/.cron2notify.critical.s  # pipe name ~/tym
+	echo sending notification...
+	notify-send -u critical "$line"
+	echo notification sent
+end
+
