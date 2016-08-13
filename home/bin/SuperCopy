@@ -1,0 +1,15 @@
+#!/bin/bash
+
+inputs=${BASH_ARGV[*]}
+destDir=/mnt/wingroza/tmp
+sshHost=szmira
+sshPort=24
+
+
+for file in $inputs
+do
+	echo kopiowanie pliku $file
+	lastSegment=$(echo $file|sed 's/.*\([^\/]+\)$/\1/')
+	dd if=$file bs=1024 | tee >(sha1sum 1>&2) |gzip -1 | ssh -p $sshPort $sshHost '/bin/bash -c tee >(gunzip | sha1sum 1>&2) >(wc 1>&2) >'"$destDir/$lastSegment.gz"
+done
+
