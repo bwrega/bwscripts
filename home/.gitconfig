@@ -1,5 +1,5 @@
 [user]
-	name = Bartlomiej Wrega
+	name = Bartłomiej Wręga
 	email = bwrega@gmail.com
 [alias]
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
