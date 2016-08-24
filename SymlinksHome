@@ -1,2 +1,3 @@
 #!/bin/fish
 ln -sf $PWD/home/bin/* ~/bin/
+ln -sf $PWD/.config/fish/conf.d/moje.fish ~/.config/fish/conf.d/
