@@ -1,6 +1,6 @@
 [user]
 	name = Bartłomiej Wręga
-	email = bwrega@gmail.com
+	email = bartlomiej.wrega@kontomatik.com
 [alias]
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=short
