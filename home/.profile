@@ -13,6 +13,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$PATH:$HOME/bin"
 fi
 
+PATH=/home/bwrega/Soft/apache-ant-current/bin:/home/bwrega/Soft/play-1_current:/home/bwrega/Soft/gradle/bin:$PATH
+GRADLE_HOME=/home/bwrega/Soft/gradle
+ANT_HOME=/home/bwrega/Soft/apache-ant-current
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
