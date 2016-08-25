@@ -1,9 +1,7 @@
 #!/bin/fish
 
 mkdir ~/bin > /dev/null
-mkdir ~/BinPriority > /dev/null
 
 ln -sf $PWD/home/bin/* ~/bin/
-ln -sf $PWD/home/BinPriority/* ~/BinPriority/
 ln -sf $PWD/home/.config/fish/conf.d/moje.fish ~/.config/fish/conf.d/
 ln -sf $PWD/home/.gitconfig ~/
