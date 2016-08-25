@@ -1,4 +1,4 @@
 #!/bin/fish
 
-padsp powiedz $argv
+padsp powiedz
 
