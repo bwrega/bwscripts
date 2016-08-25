@@ -1,8 +1,11 @@
 #!/bin/fish
 
-mkdir ~/bin > /dev/null
+if not [ -d "$HOME/bin" ]
+	mkdir ~/bin
+end
 
 ln -sf $PWD/home/bin/* ~/bin/
 ln -sf $PWD/home/.config/fish/conf.d/moje.fish ~/.config/fish/conf.d/
 ln -sf $PWD/home/.gitconfig ~/
 ln -sf $PWD/home/.bashrc ~/
+ln -sf $PWD/home/.profile ~/
