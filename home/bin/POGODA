@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl -s http://wttr.in/warsaw|grep -v "Follow .*@igor_chubin.* for wttr.in updates"
+

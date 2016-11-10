@@ -1,0 +1,10 @@
+#!/usr/bin/fish
+
+set mode random
+if [ "$argv[1]" = "blank" ]
+	set mode blank
+end
+
+echo $mode
+sed -i.bak 's/^mode:.*/mode: '$mode'/' ~/.xscreensaver
+

@@ -1,0 +1,3 @@
+#!/bin/fish
+
+git fetch ; and git rebase origin/master ; and git checkout master ; and git rebase -

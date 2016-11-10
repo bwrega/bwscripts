@@ -1,0 +1,4 @@
+#!/bin/bash
+
+grep --color=always -ir "$1" ./
+
