@@ -13,6 +13,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$PATH:$HOME/bin"
 fi
 
+PATH="/home/bartek/Soft/gradle_CURRENT/bin:$PATH:/home/bartek/Soft/spring-1.4.2.RELEASE/bin:/home/bartek/Soft/node_CURRENT/bin"
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists

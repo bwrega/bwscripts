@@ -1,0 +1,2 @@
+#!/bin/fish
+xfreerdp /v:localhost /port:3389 /u:eco\Administrator /size:1500x850 /smart-sizing:1500x850 +clipboard
