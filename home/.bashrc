@@ -24,6 +24,9 @@ alias scala='JAVA_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"
 #fi
 eval $(keychain --eval --quiet --noask --timeout 720 id_rsa)
 
+if [ `readlink /proc/$PPID/exe` != ""`which mc` ]
+then
+
 if shopt -q login_shell
 then
   fish -li && exit
@@ -32,3 +35,4 @@ else
   exit
 fi
 
+fi
