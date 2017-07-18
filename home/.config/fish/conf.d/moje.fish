@@ -4,5 +4,5 @@ alias POGODA "curl http://wttr.in/warsaw"
 alias man "env LANG=en_US man"
 alias DONG "git fetch ; git rebase"
 
-eval (thefuck --alias | tr '\n' ';')
+#eval (thefuck --alias | tr '\n' ';')
 
