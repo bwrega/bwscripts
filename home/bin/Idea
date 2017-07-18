@@ -7,9 +7,11 @@ import sys
 import os
 import time
 
+from os.path import expanduser
+
 # see com.intellij.idea.SocketLock for the server side of this interface
 
-RUN_PATH = u'/home/bartek/Soft/idea_CURRENT/bin/idea.sh'
+RUN_PATH = expanduser('~')+'/Soft/idea_CURRENT/bin/idea.sh'
 CONFIG_PATH = u'/home/user/.IntelliJIdea2016.2/config'
 SYSTEM_PATH = u'/home/user/.IntelliJIdea2016.2/system'
 

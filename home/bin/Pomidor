@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/env fish
 
 function notify
 	notify-send -t 20000 $argv
@@ -14,8 +14,36 @@ function beepLong
 end
 
 set nrPomidora $argv[1]
-if [ -z "$nrPomidora" ]
-	echo "Użycie: Pomidor nr_pomidora" 1>&2
+if [ -z "$nrPomidora" -o "$nrPomidora" = "--help" -o "$nrPomidora" = "-h" ]
+	echo \
+	'Użycie: Pomidor nr_pomidora
+	Np. 
+	Pomidor 1
+	Pomidor 2
+	(...)
+	Pomidor 4
+	Pomidor 5
+
+	Zakończenie interwałów podzielnych przez cztery sygnalizowane jest dłuższym beepnięciem.
+	Dzięki ustawianiu numerów większych niż cztery możemy na koniec dnia podliczyć, ile czasu przepracowaliśmy.
+	Np. jeśli ostatni pomidor miał numer 9, to oznacza że przepracowaliśmy cztery i pół godziny.
+
+	Jeśli realizujemy dwa projekty (np. pet store i library), to warto zrobić sobie dowiązania symboliczne do skryptu Pomidor:
+	ln -s Pomidor PomidorPetStore
+	ln -s Pomidor PomidorLibrary
+	I uruchamiać Pomidora z tych linków:
+	PomidorPetStore 1
+	PomidorPetStore 2
+	(...)
+	Dzięki temu jesteśmy w stanie podliczyć czas oddzielnie dla każdego z projektów.
+	
+	Polecam uruchamiać Pomidora w sessji screena:
+	screen -S Pomidor
+	i w uruchomionym screenie:
+	Pomidor 1
+	Pomidor 2
+	(...)
+	Dzięki temu bieżący pomidor może przetrwać ewentualny restart Xów.' 1>&2
 	exit 1
 end
 
