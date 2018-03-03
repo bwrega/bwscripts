@@ -13,6 +13,10 @@ function beepLong
 	for f in (seq 100 100 3000) ; echo "-f $f -l 17 -n " ; end | xargs beep
 end
 
+function beepTick
+	beep -f 40 -l 80 -d 0 &
+end
+
 set nrPomidora $argv[1]
 if [ -z "$nrPomidora" -o "$nrPomidora" = "--help" -o "$nrPomidora" = "-h" ]
 	echo \
@@ -60,11 +64,12 @@ echo Wciśnij ENTER żeby zrobić pauzę
 echo
 
 set pomidorTime 25 #minut
-set sleepTick 10   #sekund
+set sleepTick 5    #sekund
+set ticksPerMinute (math "60/$sleepTick")
 
 for minuta in (seq $pomidorTime -1 1)
 	printf "Zostało %2d minut " $minuta
-	for i in (seq 6)
+	for i in (seq $ticksPerMinute)
 		set startTick (date +%s.%N)
 		if bash -c "read -t $sleepTick"
 			set timeLeft (math (date +%s.%N) - $startTick)
@@ -75,14 +80,16 @@ for minuta in (seq $pomidorTime -1 1)
 			sleep $timeLeft
 		end
 		echo -n + #tick
+		beepTick
 	end
-	echo
+	echo # newline
 end
 
-echo
+echo # newline
 set pomidorEnd "Koniec pomidora nr $nrPomidora"
 echo $pomidorEnd
 
+sleep 0.5 #wait for background beep
 if [ (math "$nrPomidora"%4) = 0 ]
 	set longerBreak 'Zrób sobie dłuższą przerwę!'
 	echo $longerBreak
