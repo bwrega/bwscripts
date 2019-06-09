@@ -3,7 +3,7 @@
 #set dir /home/bartek/tym/btdogg_backup
 set dir /mnt/nm/backup/btdogg
 set tmp "/tmp"
-set baseName (date "+%Y.%m.%d_%H:%M:%S")
+set baseName (date "+%Y.%m.%d_%H.%M.%S")
 set tmpDest "$tmp/$baseName"
 set dest "$dir/dest"
 if [ "$argv[1]" = "week" ]

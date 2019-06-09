@@ -64,7 +64,7 @@ echo Wciśnij ENTER żeby zrobić pauzę
 echo
 
 set pomidorTime 25 #minut
-set sleepTick 5    #sekund
+set sleepTick 10   #sekund
 set ticksPerMinute (math "60/$sleepTick")
 
 for minuta in (seq $pomidorTime -1 1)
