@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+
+
+cd /home/bartek/code/btdogg/btdogg/ ; and \
+sbt clean assembly; and scp target/scala-2*/btdogg-assembly*.jar ren:btdogg-assembly-copied.jar

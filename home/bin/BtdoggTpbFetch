@@ -1,0 +1,7 @@
+#!/usr/bin/env fish
+
+cd /home/bartek/code/btdogg/btdogg
+
+/home/bartek/Soft/openjdk_new/bin/java -Xmx512M -jar /home/bartek/code/btdogg/btdogg/utils/tpb-fetcher/target/scala-*/tpb-fetcher-assembly-*.jar 2>&1 |tee -a /tmp/tpbFetcher.log
+exit $status
+

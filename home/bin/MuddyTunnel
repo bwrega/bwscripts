@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+
+fish -c "while true; ssh -o ExitOnForwardFailure=yes muddy-tunnel ;end"
+

@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+cd /home/bartek/code/btdogg/btdogg/
+sbt frontendServer/clean frontendServer/assembly ; and \
+cd frontend/webpage/ ; and \
+rm -r dist/ ; and \
+npm run build ; and \
+ssh mrhorse rm -r /opt/html/root ; and \
+scp -r dist/ mrhorse:/opt/html/root/ ; and \
+cd /home/bartek/code/btdogg/btdogg/ ; and \
+scp frontend/server/target/scala-2*/btdogg-frontend-server-assembly-*.jar mrhorse:btdogg-frontend-server-copied.jar 
