@@ -1,7 +1,9 @@
 #!/bin/fish
 
 #set dir /home/bartek/tym/btdogg_backup
-set dir /mnt/nm/backup/btdogg
+#set dir /mnt/nm/backup/btdogg
+#set dir /mnt/zlaptoka/backup/btdogg
+set dir /mnt/o/backup/btdogg
 set tmp "/tmp"
 set baseName (date "+%Y.%m.%d_%H.%M.%S")
 set tmpDest "$tmp/$baseName"
@@ -9,7 +11,7 @@ set dest "$dir/dest"
 if [ "$argv[1]" = "week" ]
 	set dest "$dir/week"
 end
-set archive "$dest/$baseName.tar.xz"
+set archive "$dest/$baseName.tar.gz"
 
 mkdir -p "$tmpDest"
 mkdir -p "$dest"
@@ -18,7 +20,7 @@ mkdir -p "$dest"
 mongodump --gzip --db=btdogg -o "$tmpDest"
 
 cd $tmp
-tar cJf "$archive" "$baseName"
+tar czf "$archive" "$baseName"
 
 rm -r "$tmpDest"
 
